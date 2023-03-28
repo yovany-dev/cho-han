@@ -1,0 +1,298 @@
+.none {
+    display: none;
+}
+
+.header {
+    height: 200px;
+    padding: 30px 15px 0;
+    display: flex;
+}
+
+/* Player information */
+.player-data {
+    width: 50%;
+}
+
+.container-data {
+    height: 50%;
+    display: flex;
+}
+
+.avatar {
+    width: 50px;
+    height: 50px;
+    margin-right: 5px;
+    background-image: url('/assets/imgs/profile-pictures/ghost.jpg');
+    background-size: cover;
+    border-radius: 50%;
+}
+
+.name {
+    font-size: 12px;
+    color: #f2f2f2;
+}
+
+.top-score {
+    margin-top: 5px;
+    display: flex;
+    align-items: center;
+}
+
+.top-score-img {
+    width: 15px;
+    height: 15px;
+    background-image: url('/assets/imgs/icons/star.png');
+    background-position: center;
+    background-size: cover;
+}
+
+.top-score-text {
+    margin-left: 3px;
+    font-size: 10px;
+    color: #f2f2f2;
+}
+
+.games-won {
+    margin-top: 5px;
+    display: flex;
+    align-items: center;
+}
+
+.games-won-img {
+    width: 15px;
+    height: 13px;
+    background-image: url('/assets/imgs/icons/cup.png');
+    background-position: center;
+    background-size: cover;
+}
+
+.games-won-text {
+    margin-left: 3px;
+    font-size: 10px;
+    color: #f2f2f2;
+}
+
+.score {
+    height: 50%;
+    display: flex;
+    align-items: center;
+}
+
+.score-img {
+    width: 25px;
+    height: 25px;
+    background-image: url('/assets/imgs/icons/star.png');
+    background-position: center;
+    background-size: cover;
+}
+
+.score-text {
+    margin-left: 5px;
+    font-size: 12px;
+    color: #f2f2f2;
+}
+
+/* Player options */
+.player-options {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: space-between;
+}
+
+.diamond {
+    display: flex;
+    align-items: center;
+}
+
+.diamond-img {
+    width: 35px;
+    height: 30px;
+    margin-right: 5px;
+    background-image: url('/assets/imgs/icons/diamond.png');
+    background-position: center;
+    background-size: cover;
+}
+
+.diamond-text {
+    font-size: 12px;
+    color: #f2f2f2;
+}
+
+.sound {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: url('/assets/imgs/button-small.png');
+    background-size: cover;
+}
+
+.sound:active {
+    background-image:
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+    url('/assets/imgs/button-small.png');
+}
+
+.icon-sound {
+    width: 20px;
+    height: 20px;
+    background-image: url('/assets/imgs/icons/icon-sound.png');
+    background-size: cover;
+}
+
+.icon-sound.muted {
+    background-image: url('/assets/imgs/icons/icon-sound-muted.png');
+}
+
+.btn-rank {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url('/assets/imgs/button-small.png');
+    background-size: cover;
+}
+
+.btn-rank:active {
+    background-image:
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+    url('/assets/imgs/button-small.png');
+}
+
+.rank-img {
+    width: 30px;
+    height: 25px;
+    background-image: url('/assets/imgs/icons/rank.png');
+    background-size: cover;
+}
+
+.btn-rank:active .rank-img {
+    background-image:
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+    url('/assets/imgs/icons/rank.png');
+}
+
+/* Main */
+.main {
+    height: calc(100vh - 200px);
+    padding: 0 15px;
+}
+
+.animation-and-dado {
+    height: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.animation-glass {
+    width: 200px;
+    height: 200px;
+    background-image: url('/assets/imgs/sprite-sheet-glass.png');
+    background-position: 200px;
+    animation: choHan 5s steps(18);
+    animation-delay: 1s;
+    animation-fill-mode: backwards;
+    /* display: none; */
+}
+
+@keyframes choHan {
+    0% {
+        background-position-x: 0px;
+    }
+    100% {
+        background-position-x: -3600px;
+    }
+}
+
+.dados {
+    border: 1px solid yellow;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    display: none;
+    /* visibility: hidden; */
+    /* opacity: 0; */
+    /* transform: translateY(-30%); */
+    /* transition: visibility, opacity, transform 500ms ease; */
+
+}
+
+.dados.show {
+    /* visibility: visible; */
+    /* opacity: 1; */
+    /* transform: translateY(0); */
+    display: flex;
+}
+
+.dado-1, .dado-2 {
+    width: 100px;
+    height: 100px;
+}
+
+.dado-1 {
+    background-image: url('/assets/imgs/dados/seis.png');
+    background-size: cover;
+}
+
+.dado-2 {
+    background-image: url('/assets/imgs/dados/dos.png');
+    background-size: cover;
+}
+
+.buttons {
+    height: 50%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.btn-par, .btn-impar, .btn-try-again {
+    width: 130px;
+    height: 70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url('/assets/imgs/button.png');
+    background-size: cover;
+    background-position: center;
+}
+
+.btn-par:active, .btn-impar:active, .btn-try-again:active {
+    background-image:
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+    url('/assets/imgs/button.png');
+}
+
+.par-text {
+    width: 55px;
+    height: 18px;
+    background-image: url('/assets/imgs/texts/par-text.png');
+    background-size: cover;
+    background-position: center;
+}
+
+.impar-text {
+    width: 90px;
+    height: 18px;
+    background-image: url('/assets/imgs/texts/impar-text.png');
+    background-size: cover;
+    background-position: center;
+}
+
+.btn-try-again {
+    display: none;
+}
+
+.try-again-text {
+    width: 90px;
+    height: 23px;
+    background-image: url('/assets/imgs/texts/try-again-text.png');
+    background-size: cover;
+    background-position: center;
+}
