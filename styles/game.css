@@ -269,18 +269,18 @@
     url('/assets/imgs/button.png');
 }
 
-.par-text {
+.text-impar {
     width: 55px;
     height: 18px;
-    background-image: url('/assets/imgs/texts/par-text.png');
+    background-image: url('/assets/imgs/texts/text-impar.png');
     background-size: cover;
     background-position: center;
 }
 
-.impar-text {
+.text-impar {
     width: 90px;
     height: 18px;
-    background-image: url('/assets/imgs/texts/impar-text.png');
+    background-image: url('/assets/imgs/texts/text-impar.png');
     background-size: cover;
     background-position: center;
 }
@@ -289,10 +289,10 @@
     display: none;
 }
 
-.try-again-text {
+.text-try-again {
     width: 90px;
     height: 23px;
-    background-image: url('/assets/imgs/texts/try-again-text.png');
+    background-image: url('/assets/imgs/texts/text-try-again.png');
     background-size: cover;
     background-position: center;
 }

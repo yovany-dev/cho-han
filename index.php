@@ -17,23 +17,51 @@
             <source src="/assets/media/audio/cancion-cho-han.mp3" type="audio/mpeg">
         </audio>
         <div class="container">
-            <div class="start-menu" id="start-menu">
-                <div class="audio-permission" id="audio-permission">
-                    <div class="get-permission">
-                        <div class="btn-x" id="btn-x">
-                            <div class="icon-x"></div>
+            <div class="container-pop-ups" id="container-pop-up">
+                <div class="pop-ups">
+
+                    <div class="get-permission" id="get-permission">
+                        <div class="btn-x btn-no">
+                            <div class="icon-x btn-no"></div>
                         </div>
-                        <div class="btn-allow btn-song">
-                            <div class="allow-text"></div>
+                        <div class="button-pop-up btn-allow">
+                            <div class="text-allow btn-allow"></div>
+                        </div>
+                    </div>
+
+                    <div class="get-username" id="get-username">
+                        <input type="text" class="input-name" id="input-name">
+                        <div class="message" id="message"></div>
+                        <div class="button-pop-up" id="btn-accept-username">
+                            <div class="text-accept"></div>
+                        </div>
+                    </div>
+
+                    <div class="get-profile-picture" id="profile-picture">
+                        <div class="container-profile-picture" id="container-imgs">
+                            <div class="img img-1"></div>
+                            <div class="img img-2"></div>
+                            <div class="img img-3"></div>
+                            <div class="img img-4"></div>
+                            <div class="img img-5"></div>
+                            <div class="img img-6"></div>
+                            <div class="img img-7"></div>
+                            <div class="img img-8"></div>
+                        </div>
+                        <div class="button-pop-up" id="btn-accept-pp">
+                            <div class="text-accept"></div>
                         </div>
                     </div>
                 </div>
+            </div>
+
+            <div class="start-menu" id="start-menu">
                 <div class="container-title-logo">
                     <div class="logo"></div>
                 </div>
                 <div class="container-btn-play">
                     <div class="btn-play" id="btn-play">
-                        <div class="play-text"></div>
+                        <div class="text-play"></div>
                     </div>
                 </div>
             </div>
@@ -85,13 +113,13 @@
                     </div>
                     <div class="buttons">
                         <div class="btn-par">
-                            <div class="par-text"></div>
+                            <div class="text-par"></div>
                         </div>
                         <div class="btn-impar">
-                            <div class="impar-text"></div>
+                            <div class="text-impar"></div>
                         </div>
                         <div class="btn-try-again">
-                            <div class="try-again-text"></div>
+                            <div class="text-try-again"></div>
                         </div>
                     </div>
                 </div>
@@ -99,7 +127,7 @@
         </div>
     </div>
 
-    <script src="js/main.js"></script>
-    
+    <script src="./js/app.js" type="module"></script>
+
 </body>
 </html>

@@ -1,0 +1,198 @@
+/* General popup style */
+.container-pop-ups {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    visibility: hidden;
+    opacity: 0;
+    transition: background, opacity 500ms ease;
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+.container-pop-ups.visible {
+    visibility: visible;
+    opacity: 1;
+}
+
+.pop-ups {
+    width:300px;
+    height: 290px;
+    position: relative;
+    transform: translateY(-30%);
+    background-image: url('/assets/imgs/poster-for-message.png');
+    background-size: cover;
+    background-position: center;
+    transition: transform 500ms ease;
+}
+
+.container-pop-ups.visible .pop-ups {
+    transform: translateY(0);
+}
+
+.button-pop-up {
+    width: 100px;
+    height: 50px;
+    position: absolute;
+    top: 193px;
+    left: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url('/assets/imgs/button.png');
+    background-size: cover;
+    background-position: center;
+}
+
+.button-pop-up:active {
+    background-image:
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+    url('/assets/imgs/button.png');
+}
+
+/* Popup to get audio permission */
+.get-permission {
+    width: 100%;
+    height: 100%;
+    background-image: url('/assets/imgs/texts/text-get-permission.png');
+    background-size: cover;
+    display: none;
+}
+
+.get-permission.visible {
+    display: block;
+}
+
+.text-allow {
+    width: 75px;
+    height: 10px;
+    background-image: url('/assets/imgs/texts/text-allow.png');
+    background-size: cover;
+    background-position: center;
+}
+
+.btn-x {
+    width: 35px;
+    height: 35px;
+    position: absolute;
+    top: 27px;
+    left: 227px;
+    background-image: url('/assets/imgs/button-small.png');
+    background-size: cover;
+    background-position: center;
+}
+
+.btn-x:active {
+    background-image:
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+    url('/assets/imgs/button-small.png');
+}
+
+.icon-x {
+    width: 35px;
+    height: 35px;
+    background-image: url('/assets/imgs/icons/icon-x.png');
+    background-size: cover;
+}
+
+/* Popup to get username */
+.get-username {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url('/assets/imgs/texts/text-get-name.png');
+    background-size: cover;
+    display: none;
+}
+
+.get-username.visible {
+    display: flex;
+}
+
+.message {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: -1;
+    display: none;
+}
+
+.message.name-exists {
+    display: block;
+    background-image: url('/assets/imgs/texts/text-name-exists.png');
+    background-size: cover;
+}
+
+.message.long-name {
+    display: block;
+    background-image: url('/assets/imgs/texts/text-long-name.png');
+    background-size: cover;
+}
+
+.message.empty-name {
+    display: block;
+    background-image: url('/assets/imgs/texts/text-empty-name.png');
+    background-size: cover;
+}
+
+.input-name {
+    width: 150px;
+    height: 25px;
+    padding-left: 5px;
+    font-size: 10px;
+    color: #f2f2f2;
+    border: 3px solid #f2f2f2;
+    background: #633b31;
+}
+
+.input-name:focus {
+    outline: none;
+}
+
+.text-accept {
+    width: 75px;
+    height: 11px;
+    background-image: url('/assets/imgs/texts/text-accept.png');
+    background-size: cover;
+    background-position: center;
+}
+
+/* Popup to choose a profile picture */
+.get-profile-picture {
+    width: 100%;
+    height: 100%;
+    padding-top: 80px;
+    background-image: url('/assets/imgs/texts/text-choose-picture.png');
+    background-size: cover;
+    display: none;
+}
+
+.get-profile-picture.visible {
+    display: block;
+}
+
+.container-profile-picture {
+    width: 200px;
+    height: 100px;
+    margin: auto;
+    padding: 10px;
+    display: grid;
+    grid-template-columns: repeat(4, auto);
+    gap: 10px;
+    border: 3px solid #f2f2f2;
+    background: #633b31;
+}
+
+.img {
+    background-image: url('/assets/imgs/profile-pictures/ghost.jpg');
+    background-size: cover;
+}
+
+.img.selected {
+    outline: 2px solid #f2f2f2;
+}
