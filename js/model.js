@@ -21,7 +21,6 @@ export default class Model {
         let value = false;
 
         if (newUser === null) {
-            this.saveData('newUser', false);
             value = true;
         }
 

@@ -12,10 +12,11 @@ export default class View {
         this.model = model;
     }
 
-    render() {
+    async render() {
         const newUser = this.model.newUser();
-        this.popUp.show(newUser)
-        .then(res => console.log(res));
+        const data = await this.popUp.show(newUser);
+
+        this.model.saveData('newUser', false);
     }
 
     startGame() {
