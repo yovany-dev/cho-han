@@ -16,7 +16,15 @@ export default class Model {
         return this.localStorage.getItem(item);
     }
 
-    isNewUser() {
-        return true;
+    newUser() {
+        const newUser = this.readData('newUser');
+        let value = false;
+
+        if (newUser === null) {
+            this.saveData('newUser', false);
+            value = true;
+        }
+
+        return value;
     }
 }

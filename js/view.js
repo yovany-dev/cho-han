@@ -13,8 +13,8 @@ export default class View {
     }
 
     render() {
-        const isNewUser = this.model.isNewUser();
-        this.popUp.show(isNewUser)
+        const newUser = this.model.newUser();
+        this.popUp.show(newUser)
         .then(res => console.log(res));
     }
 
