@@ -39,13 +39,12 @@
     async validateUsername(username) {
         const url = '/php/validate_username.php';
         const data = {
-            username,
-            score: 0
+            username
         }
         const init = {
             method: 'POST',
             body: JSON.stringify(data),
-            headers:{
+            headers: {
                 'Content-Type': 'application/json'
             }
         }
@@ -55,9 +54,27 @@
         return jsonData.res;
     }
 
+    saveNewUser(username) {
+        const url = '/php/save_new_user.php';
+        const data = {
+            username,
+            score: 0
+        }
+        const init = {
+            method: 'POST',
+            body: JSON.stringify(data),
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        }
+
+        fetch(url, init);
+    }
+
     // Convert name to a valid format
     formatForName(name) {
         if (name.trim() != '') {
+            name = name.trim();
             return name[0].toUpperCase() + name.slice(1).toLowerCase();
         }
         return '';
@@ -130,6 +147,7 @@
             const audioPermission = await this.getAudioPermission();
             const username = await this.getUsername();
             const profilePicture = await this.getProfilePicture();
+            this.saveNewUser(username);
 
             return {
                 audioPermission,

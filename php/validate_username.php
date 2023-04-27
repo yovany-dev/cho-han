@@ -37,8 +37,6 @@
             $value = 'name-exists';
 
         } else {
-            include('save_data.php');
-            save_data($data);
             $value = 'save-data';
         }
     }
