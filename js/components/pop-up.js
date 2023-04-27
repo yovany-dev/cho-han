@@ -142,18 +142,16 @@
         });
     }
 
-    async show(newUser) {
-        if (newUser) {
-            const audioPermission = await this.getAudioPermission();
-            const username = await this.getUsername();
-            const profilePicture = await this.getProfilePicture();
-            this.saveNewUser(username);
+    async show() {
+        const audioPermission = await this.getAudioPermission();
+        const username = await this.getUsername();
+        const profilePicture = await this.getProfilePicture();
+        this.saveNewUser(username);
 
-            return {
-                audioPermission,
-                username,
-                profilePicture
-            }
+        return {
+            audioPermission,
+            username,
+            profilePicture
         }
     }
 }

@@ -14,9 +14,12 @@ export default class View {
 
     async render() {
         const newUser = this.model.newUser();
-        const data = await this.popUp.show(newUser);
 
-        this.model.saveData('newUser', false);
+        if (newUser) {
+            const userData = await this.popUp.show();
+            this.model.saveData('newUser', false);
+            this.model.saveData('userData', JSON.stringify(userData));
+        }
     }
 
     startGame() {
