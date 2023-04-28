@@ -1,11 +1,12 @@
 import PopUp from "./components/pop-up.js";
+import Audio from "./components/audio.js";
 
 export default class View {
     constructor() {
         this.model = null;
         this.popUp = new PopUp();
-        this.btnPlay = document.getElementById('btn-play');
-        this.btnPlay.onclick = this.startGame();
+        this.audio = new Audio();
+        this.startGame();
     }
 
     setModel(model) {
@@ -22,12 +23,23 @@ export default class View {
         }
     }
 
+    saveAudioPermission(value) {
+        const userData = this.model.getUserData();
+        userData.audioPermission = value;
+        this.model.saveData('userData', JSON.stringify(userData));
+    }
+
     startGame() {
-        this.btnPlay.addEventListener('click', () => {
+        const btnPlay = document.getElementById('btn-play');
+
+        btnPlay.addEventListener('click', () => {
             const startMenu = document.getElementById('start-menu');
             const game = document.getElementById('game');
             startMenu.classList.add('none');
-            game.classList.remove('none')
-        });        
+            game.classList.remove('none');
+
+            const audioPermission = this.model.getUserData().audioPermission;
+            this.audio.onClick(audioPermission, value => this.saveAudioPermission(value));
+        });
     }
 }

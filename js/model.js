@@ -16,6 +16,10 @@ export default class Model {
         return this.localStorage.getItem(item);
     }
 
+    getUserData() {
+        return JSON.parse(this.readData('userData'));
+    }
+
     newUser() {
         const newUser = this.readData('newUser');
         let value = false;

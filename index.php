@@ -94,8 +94,8 @@
                             <div class="diamond-img"></div>
                             <div class="diamond-text">999</div>
                         </div>
-                        <div class="sound btn-song">
-                            <div class="icon-sound muted"></div>
+                        <div class="sound" id="btn-sound">
+                            <div class="icon-sound muted" id="icon-sound"></div>
                         </div>
                         <div class="btn-rank" id="btn-rank">
                             <div class="rank-img"></div>
