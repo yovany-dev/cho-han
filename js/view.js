@@ -1,10 +1,12 @@
 import PopUp from "./components/pop-up.js";
+import UserProfile from "./components/userProfile.js";
 import Audio from "./components/audio.js";
 
 export default class View {
     constructor() {
         this.model = null;
         this.popUp = new PopUp();
+        this.userProfile = new UserProfile();
         this.audio = new Audio();
         this.startGame();
     }
@@ -18,6 +20,10 @@ export default class View {
 
         if (newUser) {
             const userData = await this.popUp.show();
+            // Additional data
+            userData.topScore = 0;
+            userData.gamesWon = 0;
+
             this.model.saveData('newUser', false);
             this.model.saveData('userData', JSON.stringify(userData));
         }
@@ -37,6 +43,8 @@ export default class View {
             const game = document.getElementById('game');
             startMenu.classList.add('none');
             game.classList.remove('none');
+
+            this.userProfile.write(this.model.getUserData());
 
             const audioPermission = this.model.getUserData().audioPermission;
             this.audio.onClick(audioPermission, value => this.saveAudioPermission(value));

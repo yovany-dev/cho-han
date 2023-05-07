@@ -70,22 +70,22 @@
                 <div class="header">
                     <div class="player-data">
                         <div class="container-data">
-                            <div class="avatar"></div>
+                            <div class="avatar" id="avatar"></div>
                             <div>        
-                                <div class="name">Yovany</div>
+                                <div class="name" id="name">Yovany</div>
                                 <div class="top-score">
                                     <div class="top-score-img"></div>
-                                    <div class="top-score-text">999</div>
+                                    <div class="top-score-text" id="top-score">999</div>
                                 </div>
                                 <div class="games-won">
                                     <div class="games-won-img"></div>
-                                    <div class="games-won-text">999</div>
+                                    <div class="games-won-text" id="games-won">999</div>
                                 </div>
                             </div>
                         </div>
                         <div class="score">
                             <div class="score-img"></div>
-                            <h4 class="score-text">score:999</h4>
+                            <h4 class="score-text">score:0</h4>
                         </div>
                     </div>
 
