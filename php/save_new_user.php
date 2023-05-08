@@ -5,6 +5,9 @@
     $json_data = file_get_contents('php://input');
     $user_data = json_decode($json_data, true);
 
+    // Diamonds for user
+    $user_data["diamonds"] = 10;
+
     // Get the users from the 'users.json' file
     $json_users = file_get_contents('../data/users.json');
     $users = json_decode($json_users, true);

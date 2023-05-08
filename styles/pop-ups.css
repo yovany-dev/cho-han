@@ -188,9 +188,45 @@
     background: #633b31;
 }
 
-.img {
-    background-image: url('/assets/imgs/profile-pictures/ghost.jpg');
+.img-1 {
+    background-image: url('/assets/imgs/profile-pictures/img-1.jpg');
     background-size: cover;
+    background-position: center;
+}
+.img-2 {
+    background-image: url('/assets/imgs/profile-pictures/img-2.jpg');
+    background-size: cover;
+    background-position: center;
+}
+.img-3 {
+    background-image: url('/assets/imgs/profile-pictures/img-3.jpg');
+    background-size: cover;
+    background-position: center;
+}
+.img-4 {
+    background-image: url('/assets/imgs/profile-pictures/img-4.jpg');
+    background-size: cover;
+    background-position: center;
+}
+.img-5 {
+    background-image: url('/assets/imgs/profile-pictures/img-5.jpg');
+    background-size: cover;
+    background-position: center;
+}
+.img-6 {
+    background-image: url('/assets/imgs/profile-pictures/img-6.jpg');
+    background-size: cover;
+    background-position: center;
+}
+.img-7 {
+    background-image: url('/assets/imgs/profile-pictures/img-7.jpg');
+    background-size: cover;
+    background-position: center;
+}
+.img-8 {
+    background-image: url('/assets/imgs/profile-pictures/img-8.jpg');
+    background-size: cover;
+    background-position: center;
 }
 
 .img.selected {

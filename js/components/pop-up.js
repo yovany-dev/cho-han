@@ -54,11 +54,12 @@
         return jsonData.res;
     }
 
-    saveNewUser(username) {
+    saveNewUser(username, profilePicture) {
         const url = '/php/save_new_user.php';
         const data = {
             username,
-            score: 0
+            gamesWon: 0,
+            profilePicture
         }
         const init = {
             method: 'POST',
@@ -146,7 +147,7 @@
         const audioPermission = await this.getAudioPermission();
         const username = await this.getUsername();
         const profilePicture = await this.getProfilePicture();
-        this.saveNewUser(username);
+        this.saveNewUser(username, profilePicture);
 
         return {
             audioPermission,

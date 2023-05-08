@@ -72,27 +72,19 @@
                         <div class="container-data">
                             <div class="avatar" id="avatar"></div>
                             <div>        
-                                <div class="name" id="name">Yovany</div>
-                                <div class="top-score">
-                                    <div class="top-score-img"></div>
-                                    <div class="top-score-text" id="top-score">999</div>
-                                </div>
+                                <div class="name" id="name"></div>
                                 <div class="games-won">
                                     <div class="games-won-img"></div>
-                                    <div class="games-won-text" id="games-won">999</div>
+                                    <div class="games-won-text" id="games-won">0</div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="score">
-                            <div class="score-img"></div>
-                            <h4 class="score-text">score:0</h4>
                         </div>
                     </div>
 
                     <div class="player-options">
                         <div class="diamond">
                             <div class="diamond-img"></div>
-                            <div class="diamond-text">999</div>
+                            <div class="diamond-text" id="diamonds">0</div>
                         </div>
                         <div class="sound" id="btn-sound">
                             <div class="icon-sound muted" id="icon-sound"></div>

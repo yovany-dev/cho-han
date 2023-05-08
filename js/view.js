@@ -20,9 +20,6 @@ export default class View {
 
         if (newUser) {
             const userData = await this.popUp.show();
-            // Additional data
-            userData.topScore = 0;
-            userData.gamesWon = 0;
 
             this.model.saveData('newUser', false);
             this.model.saveData('userData', JSON.stringify(userData));
@@ -44,7 +41,8 @@ export default class View {
             startMenu.classList.add('none');
             game.classList.remove('none');
 
-            this.userProfile.write(this.model.getUserData());
+            const username = this.model.getUserData().username;
+            this.userProfile.write(username);
 
             const audioPermission = this.model.getUserData().audioPermission;
             this.audio.onClick(audioPermission, value => this.saveAudioPermission(value));
