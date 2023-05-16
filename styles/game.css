@@ -143,6 +143,171 @@
 .main {
     height: calc(100vh - 200px);
     padding: 0 15px;
+    /* border: 1px solid red; */
+}
+
+
+/* Styles to get bet */
+.get-bet {
+    width: 100%;
+    height: 70%;
+    padding-top: 25px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    /* border: 1px solid blue; */
+}
+
+.bet-title {
+    width: 300px;
+    height: 60px;
+    background-image: url('/assets/imgs/texts/text-ask-bet.png');
+    background-size: cover;
+    background-position: center;
+}
+
+.container-input {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    /* border: 1px solid white; */
+}
+
+.input-to-get-amount {
+    width: 150px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    /* justify-content: space-between; */
+    color: #f2f2f2;
+    border: 3px solid #f2f2f2;
+    background: #633b31;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.container-diamond-icon {
+    width: 30%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-right: 3px solid #f2f2f2;
+    background-color: #b99164;
+}
+
+.diamond-icon {
+    width: 35px;
+    height: 30px;
+    background-image: url('/assets/imgs/icons/diamond.png');
+    background-position: center;
+    background-size: cover;
+}
+
+.input-amount-diamonds {
+    width: 75px;
+    margin-left: 10px;
+    padding-bottom: 3px;
+    border: none;
+    color: #f2f2f2;
+    border-bottom: 2px solid #f2f2f2;
+    background: transparent;
+}
+
+.input-amount-diamonds:focus {
+    outline: none;
+}
+
+.minus-button {
+    width: 50px;
+    height: 50px;
+    margin-left: 20px;
+    background-image: url('/assets/imgs/button-small.png');
+    background-size: cover;
+}
+
+.minus-button:active {
+    background-image:
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+    url('/assets/imgs/button-small.png');
+}
+
+.icon-minus {
+    width: 100%;
+    height: 100%;
+    background-image: url('/assets/imgs/icons/menos.png');
+    background-size: cover;
+    background-position: center;
+}
+
+.plus-button {
+    width: 50px;
+    height: 50px;
+    margin-left: 10px;
+    background-image: url('/assets/imgs/button-small.png');
+    background-size: cover;
+}
+
+.plus-button:active {
+    background-image:
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+    url('/assets/imgs/button-small.png');
+}
+
+.icon-plus {
+    width: 100%;
+    height: 100%;
+    background-image: url('/assets/imgs/icons/mas.png');
+    background-size: cover;
+    background-position: center;
+}
+
+#message-diamonds {
+    width: 300px;
+    height: 33px;
+    background-size: cover;
+}
+
+#message-diamonds.insufficient-diamonds {
+    background-image: url('/assets/imgs/texts/text-insufficient-diamonds.png');
+
+}
+
+#message-diamonds.enter-amount {
+    background-image: url('/assets/imgs/texts/text-enter-amount.png');
+}
+
+.button-bet {
+    width: 130px;
+    height: 68px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url('/assets/imgs/button.png');
+    background-size: cover;
+    background-position: center;
+    /* border: 1px solid red; */
+}
+
+.button-bet:active {
+    background-image:
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+    url('/assets/imgs/button.png');
+}
+
+.text-bet {
+    width: 100%;
+    height: 100%;
+    background-image: url('/assets/imgs/texts/text-bet.png');
+    background-size: cover;
+    background-position: center;
+}
+
+
+/* Gameplay styles */
+.gameplay {
+    display: none;
 }
 
 .animation-and-dado {

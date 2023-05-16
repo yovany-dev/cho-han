@@ -1,6 +1,7 @@
 import PopUp from "./components/pop-up.js";
 import UserProfile from "./components/userProfile.js";
 import Audio from "./components/audio.js";
+import Game from "./game.js";
 
 export default class View {
     constructor() {
@@ -46,6 +47,9 @@ export default class View {
 
             const audioPermission = this.model.getUserData().audioPermission;
             this.audio.onClick(audioPermission, value => this.saveAudioPermission(value));
+
+            const objet = new Game(username);
+            objet.init();
         });
     }
 }

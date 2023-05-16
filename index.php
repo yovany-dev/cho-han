@@ -96,22 +96,49 @@
                 </div>
 
                 <div class="main">
-                    <div class="animation-and-dado">
-                        <div class="animation-glass"></div>
-                        <div class="dados">
-                            <div class="dado-1"></div>
-                            <div class="dado-2"></div>
+                    <div class="get-bet">
+                        <div class="bet-title"></div>
+
+                        <div class="container-input">
+                            <div class="input-to-get-amount">
+                                <div class="container-diamond-icon">
+                                    <div class="diamond-icon"></div>
+                                </div>
+                                <input type="text" class="input-amount-diamonds" value="10" id="input-diamonds" onkeypress="return event.charCode>=48 && event.charCode<=57">
+                            </div>
+                            <div class="minus-button" id="btn-minus">
+                                <div class="icon-minus"></div>
+                            </div>
+                            <div class="plus-button" id="btn-plus">
+                                <div class="icon-plus"></div>
+                            </div>
+                        </div>
+
+                        <div id="message-diamonds"></div>
+
+                        <div class="button-bet" id="btn-bet">
+                            <div class="text-bet"></div>
                         </div>
                     </div>
-                    <div class="buttons">
-                        <div class="btn-par">
-                            <div class="text-par"></div>
+
+                    <div class="gameplay">
+                        <div class="animation-and-dado">
+                            <div class="animation-glass"></div>
+                            <div class="dados">
+                                <div class="dado-1"></div>
+                                <div class="dado-2"></div>
+                            </div>
                         </div>
-                        <div class="btn-impar">
-                            <div class="text-impar"></div>
-                        </div>
-                        <div class="btn-try-again">
-                            <div class="text-try-again"></div>
+                        <div class="buttons">
+                            <div class="btn-par">
+                                <div class="text-par"></div>
+                            </div>
+                            <div class="btn-impar">
+                                <div class="text-impar"></div>
+                            </div>
+                            <div class="btn-try-again">
+                                <div class="text-try-again"></div>
+                            </div>
                         </div>
                     </div>
                 </div>
