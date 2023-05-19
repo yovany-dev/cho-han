@@ -96,7 +96,7 @@
                 </div>
 
                 <div class="main">
-                    <div class="get-bet">
+                    <div class="get-bet" id="get-bet">
                         <div class="bet-title"></div>
 
                         <div class="container-input">
@@ -121,23 +121,41 @@
                         </div>
                     </div>
 
-                    <div class="gameplay">
-                        <div class="animation-and-dado">
-                            <div class="animation-glass"></div>
-                            <div class="dados">
-                                <div class="dado-1"></div>
-                                <div class="dado-2"></div>
-                            </div>
-                        </div>
-                        <div class="buttons">
-                            <div class="btn-par">
+                    <div class="get-answer" id="get-answer">
+                        <div class="animation-glass"></div>
+
+                        <div class="buttons" id="container-buttons">
+                            <div class="btn-par" id="btn-cho">
                                 <div class="text-par"></div>
                             </div>
-                            <div class="btn-impar">
+                            <div class="btn-impar" id="btn-han">
                                 <div class="text-impar"></div>
                             </div>
+                        </div>
+                    </div>
+
+                    <div class="show-results" id="show-results">
+                        <div class="container-dice" id="container-dice">
+                            <div class="dice-1"></div>
+                            <div class="dice-2"></div>
+                        </div>
+
+                        <div class="message-results" id="message-results">
+                            <div class="title-results">Obtuviste un 8</div>
+                            <div class="container-show-diamonds">
+                                <div class="show-diamonds">
+                                    <div class="diamond-icon"></div>
+                                </div>
+                                <div class="diamonds-results">+20</div>
+                            </div>
+                        </div>
+
+                        <div class="buttons-results" id="buttons-results">
                             <div class="btn-try-again">
                                 <div class="text-try-again"></div>
+                            </div>
+                            <div class="btn-back-to-menu">
+                                <div class="text-back-to-menu"></div>
                             </div>
                         </div>
                     </div>

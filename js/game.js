@@ -1,6 +1,10 @@
 export default class Game {
     constructor(username) {
+        this.keepPlaying = true;
         this.username = username;
+        this.bet = null;
+        this.diceOne = null;
+        this.diceTwo = null;
     }
 
     async getDiamonds(username) {
@@ -56,15 +60,101 @@ export default class Game {
     
                 } else {
                     // Bet
-                    resolve(inputDiamonds.value);
+                    this.bet = inputDiamonds.value;
+                    resolve(true);
                 }
             });
         });
 
     }
 
+    randomNumber() {
+        return Math.floor(Math.random() * (6 - 1 + 1)) + 1;
+    }
+
+    randomDice() {
+        this.diceOne = this.randomNumber();
+        this.diceTwo = this.randomNumber();
+    }
+
+    showResults(status) {
+        const elementShowResults = document.getElementById('show-results');
+        elementShowResults.classList.add('show');
+        setTimeout(() => {
+            const diceOne = document.querySelector('.dice-1');
+            diceOne.classList.add('animation');
+
+            setTimeout(() => {
+                const diceTwo = document.querySelector('.dice-2');
+                diceTwo.classList.add('animation');
+            }, 500);
+
+            setTimeout(() => {
+                const messageResults = document.getElementById('message-results');
+
+                messageResults.classList.add('animation');
+            }, 1000);
+
+            setTimeout(() => {
+                const buttonsResults = document.getElementById('buttons-results');
+                buttonsResults.classList.add('animation');
+            }, 1500);
+        }, 100);
+    }
+
+    game(option) {
+        this.randomDice();
+
+        if (
+            option == 'cho' &&
+            (this.diceOne + this.diceTwo) % 2 === 0
+        ) {
+            // Cho
+            this.showResults(option);
+
+        } else if (
+            option == 'han' &&
+            (this.diceOne + this.diceTwo) % 2 !== 0
+        ) {
+            // Han
+            this.showResults(option);
+
+        } else {
+            // Game over
+            this.showResults('game-over');
+        }
+    }
+
+    getAnswer() {
+        const elementGetAnswer = document.getElementById('get-answer');
+        const btnCho = document.getElementById('btn-cho');
+        const btnHan = document.getElementById('btn-han');
+        
+        elementGetAnswer.classList.add('show');
+        setTimeout(() => {
+            const containerButtons = document.getElementById('container-buttons');
+            containerButtons.classList.add('animation');
+
+            btnCho.addEventListener('click', () => {
+                elementGetAnswer.classList.remove('show');
+                this.game('cho');
+            });
+
+            btnHan.addEventListener('click', () => {
+                elementGetAnswer.classList.remove('show');
+                this.game('han');
+            });
+        }, 6000);
+    }
+
     async init() {
+        const getBet = document.getElementById('get-bet');
         const amountDiamonds = await this.getDiamonds(this.username);
-        const bet = await this.getBet(amountDiamonds);
+        const continueBet = await this.getBet(amountDiamonds);
+
+        if (continueBet) {
+            getBet.classList.add('hide');
+            this.getAnswer();
+        }
     }
 }
