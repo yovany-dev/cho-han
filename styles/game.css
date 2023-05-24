@@ -313,7 +313,7 @@
 
 
 /* Styles to get user response */
-.get-answer {
+.cho-han {
     height: 70%;
     display: flex;
     flex-direction: column;
@@ -323,7 +323,7 @@
     /* border: 1px solid blue; */
 }
 
-.get-answer.show {
+.cho-han.show {
     display: flex;
 }
 
@@ -347,7 +347,7 @@
     }
 }
 
-.buttons {
+.container-buttons {
     width: 100%;
     margin-top: 25px;
     display: flex;
@@ -359,7 +359,7 @@
     transition: visibility, opacity, transform 500ms ease;
 }
 
-.buttons.animation {
+.container-buttons.animation {
     visibility: visible;
     opacity: 1;
     transform: translateY(0);
@@ -422,29 +422,22 @@
 .dice-1, .dice-2 {
     width: 100px;
     height: 100px;
-}
-
-.dice-1, .dice-2{
+    background-size: cover;
+    background-position: center;
     visibility: hidden;
     opacity: 0;
     transform: translateY(-50%);
     transition: visibility, opacity, transform 500ms ease;
 }
 
-.dice-1.animation, .dice-2.animation {
+.dice-2 {
+    transition-delay: 500ms;
+}
+
+.container-dice.animation .dice-1, .container-dice.animation .dice-2 {
     visibility: visible;
     opacity: 1;
     transform: translateY(0);
-}
-
-.dice-1 {
-    background-image: url('/assets/imgs/dados/seis.png');
-    background-size: cover;
-}
-
-.dice-2 {
-    background-image: url('/assets/imgs/dados/dos.png');
-    background-size: cover;
 }
 
 .message-results {
@@ -456,6 +449,7 @@
     align-items: center;
     opacity: 0;
     transition: opacity 500ms ease;
+    transition-delay: 1s;
 }
 
 .message-results.animation {
@@ -469,7 +463,7 @@
 }
 
 .container-show-diamonds {
-    width: 120px;
+    width: 150px;
     height: 50px;
     display: flex;
     border: 3px solid #f2f2f2;
@@ -506,6 +500,7 @@
     opacity: 0;
     transform: translateY(50px);
     transition: visibility, opacity, transform 500ms ease;
+    transition-delay: 1.5s;
 }
 
 .buttons-results.animation{

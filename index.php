@@ -121,15 +121,15 @@
                         </div>
                     </div>
 
-                    <div class="get-answer" id="get-answer">
+                    <div class="cho-han" id="cho-han">
                         <div class="animation-glass"></div>
 
-                        <div class="buttons" id="container-buttons">
-                            <div class="btn-par" id="btn-cho">
-                                <div class="text-par"></div>
+                        <div class="container-buttons" id="container-buttons">
+                            <div class="btn-par button-cho">
+                                <div class="text-par button-cho"></div>
                             </div>
-                            <div class="btn-impar" id="btn-han">
-                                <div class="text-impar"></div>
+                            <div class="btn-impar button-han">
+                                <div class="text-impar button-han"></div>
                             </div>
                         </div>
                     </div>
@@ -141,21 +141,21 @@
                         </div>
 
                         <div class="message-results" id="message-results">
-                            <div class="title-results">Obtuviste un 8</div>
+                            <div class="title-results" id="title-results"></div>
                             <div class="container-show-diamonds">
                                 <div class="show-diamonds">
                                     <div class="diamond-icon"></div>
                                 </div>
-                                <div class="diamonds-results">+20</div>
+                                <div class="diamonds-results" id="diamonds-results"></div>
                             </div>
                         </div>
 
                         <div class="buttons-results" id="buttons-results">
-                            <div class="btn-try-again">
-                                <div class="text-try-again"></div>
+                            <div class="btn-try-again" id="btn-try-again">
+                                <div class="text-try-again button-try-again"></div>
                             </div>
-                            <div class="btn-back-to-menu">
-                                <div class="text-back-to-menu"></div>
+                            <div class="btn-back-to-menu" id="btn-back-to-menu">
+                                <div class="text-back-to-menu button-back-to-menu"></div>
                             </div>
                         </div>
                     </div>
