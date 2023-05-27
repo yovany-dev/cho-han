@@ -1,19 +1,21 @@
 export default class Audio {
     constructor() {
         this.audio = document.getElementById('audio');
+        this.iconSound = document.getElementById('icon-sound');
     }
 
-    onClick(audioPermission, callback) {
-        const btnSound = document.getElementById('btn-sound');
-        const iconSound = document.getElementById('icon-sound');
-
+    play(audioPermission) {
         if (audioPermission) {
             this.audio.play();
-            iconSound.classList.remove('muted');
+            this.iconSound.classList.remove('muted');
         }
+    }
+
+    onClick(callback) {
+        const btnSound = document.getElementById('btn-sound');
 
         btnSound.addEventListener('click', () => {
-            if (iconSound.classList.contains('muted')) {
+            if (this.iconSound.classList.contains('muted')) {
                 this.audio.play();
                 callback(true);
 
@@ -22,7 +24,7 @@ export default class Audio {
                 callback(false);
             }
 
-            iconSound.classList.toggle('muted');
+            this.iconSound.classList.toggle('muted');
         });
     }
 }

@@ -6,10 +6,14 @@ import Game from "./game.js";
 export default class View {
     constructor() {
         this.model = null;
+        this.username = null;
         this.popUp = new PopUp();
         this.userProfile = new UserProfile();
         this.audio = new Audio();
-        this.startGame();
+        this.game = new Game();
+        this.play();
+
+        this.audio.onClick(value => this.saveAudioPermission(value));
     }
 
     setModel(model) {
@@ -25,6 +29,9 @@ export default class View {
             this.model.saveData('newUser', false);
             this.model.saveData('userData', JSON.stringify(userData));
         }
+
+        this.username = this.model.getUserData().username;
+        this.game.init(this.username);
     }
 
     saveAudioPermission(value) {
@@ -33,23 +40,21 @@ export default class View {
         this.model.saveData('userData', JSON.stringify(userData));
     }
 
-    startGame() {
+    play() {
         const btnPlay = document.getElementById('btn-play');
 
         btnPlay.addEventListener('click', () => {
-            const startMenu = document.getElementById('start-menu');
-            const game = document.getElementById('game');
-            startMenu.classList.add('none');
-            game.classList.remove('none');
+            const menu = document.getElementById('menu');
+            const main = document.getElementById('main');
+            menu.classList.add('none');
+            main.classList.remove('none');
 
-            const username = this.model.getUserData().username;
-            this.userProfile.write(username);
+            // Write user profile
+            this.userProfile.write(this.username);
 
+            // Starting audio...
             const audioPermission = this.model.getUserData().audioPermission;
-            this.audio.onClick(audioPermission, value => this.saveAudioPermission(value));
-
-            const objet = new Game(username);
-            objet.init();
+            this.audio.play(audioPermission);
         });
     }
 }

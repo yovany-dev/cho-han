@@ -55,7 +55,7 @@
                 </div>
             </div>
 
-            <div class="start-menu" id="start-menu">
+            <div class="start-menu" id="menu">
                 <div class="container-title-logo">
                     <div class="logo"></div>
                 </div>
@@ -66,7 +66,7 @@
                 </div>
             </div>
 
-            <div class="game none" id="game">
+            <div class="game none" id="main">
                 <div class="header">
                     <div class="player-data">
                         <div class="container-data">

@@ -1,7 +1,5 @@
 export default class Game {
-    constructor(username) {
-        this.username = username;
-        this.keepPlaying = true;
+    constructor() {
         this.bet = null;
         this.diceOne = null;
         this.diceTwo = null;
@@ -94,17 +92,24 @@ export default class Game {
                 this.removeAnimationClass(containerDice);
                 this.removeAnimationClass(messageResults);
                 this.removeAnimationClass(buttonsResults);
+
                 elementShowResults.classList.remove('show');
+
+                const elementGetBet = document.getElementById('get-bet');
 
                 const btnTryAgain = element.classList.contains('button-try-again')
                 if (btnTryAgain) {
-                    const elementGetBet = document.getElementById('get-bet');
                     elementGetBet.classList.remove('hide');
                 }
 
                 const btnBackToMenu = element.classList.contains('button-back-to-menu')
                 if (btnBackToMenu) {
-                    console.log(element);
+                    elementGetBet.classList.remove('hide');
+
+                    const menu = document.getElementById('menu');
+                    const main = document.getElementById('main');
+                    menu.classList.remove('none');
+                    main.classList.add('none');
                 }
             }
         })
@@ -195,8 +200,8 @@ export default class Game {
         });
     }
 
-    async init() {
-        const amountDiamonds = await this.getDiamonds(this.username);
+    async init(username) {
+        const amountDiamonds = await this.getDiamonds(username);
         this.getBet(amountDiamonds);
     }
 }
