@@ -11,7 +11,6 @@ export default class Game {
     }
 
     async getDiamonds() {
-        console.log('Get diamonds');
         const username = this.username;
         const url = '/php/user_data.php';
         const data = {
@@ -193,7 +192,6 @@ export default class Game {
     }
 
     choHan() {
-        console.log('Cho | Han');
         const elementChoHan = document.getElementById('cho-han');
         elementChoHan.classList.add('show');
 
@@ -225,7 +223,6 @@ export default class Game {
     }
 
     getBet() {
-        console.log('Bet');
         const inputDiamonds = document.getElementById('input-diamonds');
         const btnMinus = document.getElementById('btn-minus');
         const btnPlus = document.getElementById('btn-plus');
@@ -259,7 +256,6 @@ export default class Game {
     }
 
     init(username) {
-        console.log('init');
         this.username = username;
 
         this.getDiamonds()
