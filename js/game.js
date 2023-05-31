@@ -1,11 +1,18 @@
+import UserProfile from "/js/components/userProfile.js";
+
 export default class Game {
     constructor() {
+        this.username = null;
+        this.diamonds = null;
         this.bet = null;
         this.diceOne = null;
         this.diceTwo = null;
+        this.UserProfile = new UserProfile();
     }
 
-    async getDiamonds(username) {
+    async getDiamonds() {
+        console.log('Get diamonds');
+        const username = this.username;
         const url = '/php/user_data.php';
         const data = {
             username
@@ -20,7 +27,9 @@ export default class Game {
 
         const response = await fetch(url, init);
         const jsonData = await response.json();
-        return jsonData.diamonds;
+        this.diamonds = jsonData.diamonds;
+
+        return response.status;
     }
 
     message(msg) {
@@ -49,16 +58,50 @@ export default class Game {
         element.classList.add('animation');
     }
 
+    async upgradeData(win) {
+        const url = '/php/update_data.php';
+        const username = this.username;
+        const bet = this.bet;
+
+        const data = {
+            username,
+            win,
+            bet
+        }
+        const init = {
+            method: 'POST',
+            body: JSON.stringify(data),
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        }
+
+        const response = await fetch(url, init);
+        return response.status;
+    }
+
+    upgradeDiamondsAndGamesWon(status) {
+        let win = false;
+
+        if (status == 'cho' || status == 'han') {
+            win = true;
+        }
+
+        return this.upgradeData(win);
+    }
+
     showResults(status) {
         const elementShowResults = document.getElementById('show-results');
         elementShowResults.classList.add('show');
 
+        // Dice
         const diceOne = document.querySelector('.dice-1');
         const diceTwo = document.querySelector('.dice-2');
 
         diceOne.style.backgroundImage = "url('/assets/imgs/dados/"+this.diceOne+".png')";
         diceTwo.style.backgroundImage = "url('/assets/imgs/dados/"+this.diceTwo+".png')";
 
+        // Message
         const titleResults = document.getElementById('title-results');
         const sum = this.diceOne + this.diceTwo;
         titleResults.innerText = 'Obtuviste un ' + sum;
@@ -73,6 +116,15 @@ export default class Game {
             diamondsResults.style.color = '#dd2424';
         }
 
+        // Update data
+        this.upgradeDiamondsAndGamesWon(status)
+        .then(res => {
+            if (res == 200) {
+                this.UserProfile.write(this.username);
+            }
+        });
+
+        // Animation
         const containerDice = document.getElementById('container-dice');
         const messageResults = document.getElementById('message-results');
         const buttonsResults = document.getElementById('buttons-results');
@@ -84,7 +136,10 @@ export default class Game {
             this.addAnimationClass(buttonsResults);
         }, 100);
 
+        // Buttons
         buttonsResults.addEventListener('click', e => {
+            e.preventDefault();
+            e.stopImmediatePropagation();
             const element = e.target;
 
             if (element && !element.classList.contains('buttons-results')) {
@@ -97,15 +152,14 @@ export default class Game {
 
                 const elementGetBet = document.getElementById('get-bet');
 
-                const btnTryAgain = element.classList.contains('button-try-again')
-                if (btnTryAgain) {
-                    elementGetBet.classList.remove('hide');
-                }
+                this.getDiamonds()
+                .then(res => {
+                    if (res == 200) {
+                        elementGetBet.classList.remove('hide');
+                    }
+                });
 
-                const btnBackToMenu = element.classList.contains('button-back-to-menu')
-                if (btnBackToMenu) {
-                    elementGetBet.classList.remove('hide');
-
+                if (element.matches('.button-back-to-menu')) {
                     const menu = document.getElementById('menu');
                     const main = document.getElementById('main');
                     menu.classList.remove('none');
@@ -139,6 +193,7 @@ export default class Game {
     }
 
     choHan() {
+        console.log('Cho | Han');
         const elementChoHan = document.getElementById('cho-han');
         elementChoHan.classList.add('show');
 
@@ -147,6 +202,8 @@ export default class Game {
             this.addAnimationClass(containerButtons);
 
             containerButtons.addEventListener('click', e => {
+                e.preventDefault();
+                e.stopImmediatePropagation();
                 const element = e.target;
                 
                 if (element && !element.classList.contains('container-buttons')) {
@@ -167,7 +224,8 @@ export default class Game {
         }, 6000);
     }
 
-    getBet(amountDiamonds) {
+    getBet() {
+        console.log('Bet');
         const inputDiamonds = document.getElementById('input-diamonds');
         const btnMinus = document.getElementById('btn-minus');
         const btnPlus = document.getElementById('btn-plus');
@@ -187,7 +245,7 @@ export default class Game {
             if (inputDiamonds.value.length === 0 || inputDiamonds.value == 0) {
                 this.message('enter-amount');
 
-            } else if (inputDiamonds.value > amountDiamonds) {
+            } else if (inputDiamonds.value > this.diamonds) {
                 this.message('insufficient-diamonds');
 
             } else {
@@ -200,8 +258,15 @@ export default class Game {
         });
     }
 
-    async init(username) {
-        const amountDiamonds = await this.getDiamonds(username);
-        this.getBet(amountDiamonds);
+    init(username) {
+        console.log('init');
+        this.username = username;
+
+        this.getDiamonds()
+        .then(res => {
+            if (res == 200) {
+                this.getBet();
+            }
+        });
     }
 }

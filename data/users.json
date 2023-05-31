@@ -4,11 +4,5 @@
         "gamesWon": 0,
         "profilePicture": "img-8",
         "diamonds": 10
-    },
-    {
-        "username": "Ruby",
-        "gamesWon": 0,
-        "profilePicture": "img-6",
-        "diamonds": 10
     }
 ]
