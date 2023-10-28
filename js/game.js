@@ -1,4 +1,4 @@
-import UserProfile from "/js/components/userProfile.js";
+import UserProfile from "./components/userProfile.js";
 
 export default class Game {
     constructor() {
