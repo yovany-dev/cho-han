@@ -63,8 +63,8 @@ export default class Game {
         const diceOne = document.querySelector('.dice-1');
         const diceTwo = document.querySelector('.dice-2');
 
-        diceOne.style.backgroundImage = "url('/assets/imgs/dados/"+this.diceOne+".png')";
-        diceTwo.style.backgroundImage = "url('/assets/imgs/dados/"+this.diceTwo+".png')";
+        diceOne.style.backgroundImage = "url('assets/imgs/dados/"+this.diceOne+".png')";
+        diceTwo.style.backgroundImage = "url('assets/imgs/dados/"+this.diceTwo+".png')";
 
         // Message
         const titleResults = document.getElementById('title-results');
