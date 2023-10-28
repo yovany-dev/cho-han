@@ -20,7 +20,7 @@
 .logo {
     width: 300px;
     height: 178px;
-    background-image: url('/assets/imgs/logo-cho-han.png');
+    background-image: url('../assets/imgs/logo-cho-han.png');
     background-size: cover;
     background-position: center;
 }
@@ -32,7 +32,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-image: url('/assets/imgs/button.png');
+    background-image: url('../assets/imgs/button.png');
     background-size: cover;
     background-position: center;
     animation: bounce 5s infinite;
@@ -41,13 +41,13 @@
 .btn-play:active {
     background-image:
     linear-gradient(to bottom, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
-    url('/assets/imgs/button.png');
+    url('../assets/imgs/button.png');
 }
 
 .text-play {
     width: 90px;
     height: 21px;
-    background-image: url('/assets/imgs/texts/text-play.png');
+    background-image: url('../assets/imgs/texts/text-play.png');
     background-size: cover;
     background-position: center;
 }

@@ -25,7 +25,7 @@
     width: 50px;
     height: 50px;
     margin-right: 5px;
-    /* background-image: url('/assets/imgs/profile-pictures/ghost.jpg'); */
+    /* background-image: url('../assets/imgs/profile-pictures/ghost.jpg'); */
     background-size: cover;
     background-position: center;
     border-radius: 50%;
@@ -45,7 +45,7 @@
 .games-won-img {
     width: 15px;
     height: 13px;
-    background-image: url('/assets/imgs/icons/cup.png');
+    background-image: url('../assets/imgs/icons/cup.png');
     background-position: center;
     background-size: cover;
 }
@@ -75,7 +75,7 @@
     width: 35px;
     height: 30px;
     margin-right: 5px;
-    background-image: url('/assets/imgs/icons/diamond.png');
+    background-image: url('../assets/imgs/icons/diamond.png');
     background-position: center;
     background-size: cover;
 }
@@ -91,25 +91,25 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background-image: url('/assets/imgs/button-small.png');
+    background-image: url('../assets/imgs/button-small.png');
     background-size: cover;
 }
 
 .sound:active {
     background-image:
     linear-gradient(to bottom, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
-    url('/assets/imgs/button-small.png');
+    url('../assets/imgs/button-small.png');
 }
 
 .icon-sound {
     width: 20px;
     height: 20px;
-    background-image: url('/assets/imgs/icons/icon-sound.png');
+    background-image: url('../assets/imgs/icons/icon-sound.png');
     background-size: cover;
 }
 
 .icon-sound.muted {
-    background-image: url('/assets/imgs/icons/icon-sound-muted.png');
+    background-image: url('../assets/imgs/icons/icon-sound-muted.png');
 }
 
 .btn-rank {
@@ -118,27 +118,27 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-image: url('/assets/imgs/button-small.png');
+    background-image: url('../assets/imgs/button-small.png');
     background-size: cover;
 }
 
 .btn-rank:active {
     background-image:
     linear-gradient(to bottom, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
-    url('/assets/imgs/button-small.png');
+    url('../assets/imgs/button-small.png');
 }
 
 .rank-img {
     width: 30px;
     height: 25px;
-    background-image: url('/assets/imgs/icons/rank.png');
+    background-image: url('../assets/imgs/icons/rank.png');
     background-size: cover;
 }
 
 .btn-rank:active .rank-img {
     background-image:
     linear-gradient(to bottom, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
-    url('/assets/imgs/icons/rank.png');
+    url('../assets/imgs/icons/rank.png');
 }
 
 
@@ -169,7 +169,7 @@
 .bet-title {
     width: 300px;
     height: 60px;
-    background-image: url('/assets/imgs/texts/text-ask-bet.png');
+    background-image: url('../assets/imgs/texts/text-ask-bet.png');
     background-size: cover;
     background-position: center;
 }
@@ -207,7 +207,7 @@
 .diamond-icon {
     width: 35px;
     height: 30px;
-    background-image: url('/assets/imgs/icons/diamond.png');
+    background-image: url('../assets/imgs/icons/diamond.png');
     background-position: center;
     background-size: cover;
 }
@@ -230,20 +230,20 @@
     width: 50px;
     height: 50px;
     margin-left: 20px;
-    background-image: url('/assets/imgs/button-small.png');
+    background-image: url('../assets/imgs/button-small.png');
     background-size: cover;
 }
 
 .minus-button:active {
     background-image:
     linear-gradient(to bottom, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
-    url('/assets/imgs/button-small.png');
+    url('../assets/imgs/button-small.png');
 }
 
 .icon-minus {
     width: 100%;
     height: 100%;
-    background-image: url('/assets/imgs/icons/menos.png');
+    background-image: url('../assets/imgs/icons/menos.png');
     background-size: cover;
     background-position: center;
 }
@@ -252,20 +252,20 @@
     width: 50px;
     height: 50px;
     margin-left: 10px;
-    background-image: url('/assets/imgs/button-small.png');
+    background-image: url('../assets/imgs/button-small.png');
     background-size: cover;
 }
 
 .plus-button:active {
     background-image:
     linear-gradient(to bottom, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
-    url('/assets/imgs/button-small.png');
+    url('../assets/imgs/button-small.png');
 }
 
 .icon-plus {
     width: 100%;
     height: 100%;
-    background-image: url('/assets/imgs/icons/mas.png');
+    background-image: url('../assets/imgs/icons/mas.png');
     background-size: cover;
     background-position: center;
 }
@@ -277,12 +277,12 @@
 }
 
 #message-diamonds.insufficient-diamonds {
-    background-image: url('/assets/imgs/texts/text-insufficient-diamonds.png');
+    background-image: url('../assets/imgs/texts/text-insufficient-diamonds.png');
 
 }
 
 #message-diamonds.enter-amount {
-    background-image: url('/assets/imgs/texts/text-enter-amount.png');
+    background-image: url('../assets/imgs/texts/text-enter-amount.png');
 }
 
 .button-bet {
@@ -291,7 +291,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-image: url('/assets/imgs/button.png');
+    background-image: url('../assets/imgs/button.png');
     background-size: cover;
     background-position: center;
     /* border: 1px solid red; */
@@ -300,13 +300,13 @@
 .button-bet:active {
     background-image:
     linear-gradient(to bottom, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
-    url('/assets/imgs/button.png');
+    url('../assets/imgs/button.png');
 }
 
 .text-bet {
     width: 100%;
     height: 100%;
-    background-image: url('/assets/imgs/texts/text-bet.png');
+    background-image: url('../assets/imgs/texts/text-bet.png');
     background-size: cover;
     background-position: center;
 }
@@ -330,7 +330,7 @@
 .animation-glass {
     width: 200px;
     height: 200px;
-    background-image: url('/assets/imgs/sprite-sheet-glass.png');
+    background-image: url('../assets/imgs/sprite-sheet-glass.png');
     background-position: 200px;
     animation: choHan 5s steps(18);
     animation-delay: 1s;
@@ -371,7 +371,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-image: url('/assets/imgs/button.png');
+    background-image: url('../assets/imgs/button.png');
     background-size: cover;
     background-position: center;
 }
@@ -379,13 +379,13 @@
 .btn-par:active, .btn-impar:active:active {
     background-image:
     linear-gradient(to bottom, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
-    url('/assets/imgs/button.png');
+    url('../assets/imgs/button.png');
 }
 
 .text-par {
     width: 55px;
     height: 18px;
-    background-image: url('/assets/imgs/texts/text-par.png');
+    background-image: url('../assets/imgs/texts/text-par.png');
     background-size: cover;
     background-position: center;
 }
@@ -393,7 +393,7 @@
 .text-impar {
     width: 90px;
     height: 18px;
-    background-image: url('/assets/imgs/texts/text-impar.png');
+    background-image: url('../assets/imgs/texts/text-impar.png');
     background-size: cover;
     background-position: center;
 }
@@ -515,7 +515,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-image: url('/assets/imgs/button.png');
+    background-image: url('../assets/imgs/button.png');
     background-size: cover;
     background-position: center;
 }
@@ -523,13 +523,13 @@
 .btn-try-again:active, .btn-back-to-menu:active {
     background-image:
     linear-gradient(to bottom, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
-    url('/assets/imgs/button.png');
+    url('../assets/imgs/button.png');
 }
 
 .text-try-again {
     width: 100%;
     height: 100%;
-    background-image: url('/assets/imgs/texts/text-try-again.png');
+    background-image: url('../assets/imgs/texts/text-try-again.png');
     background-size: cover;
     background-position: center;
 }
@@ -537,7 +537,7 @@
 .text-back-to-menu {
     width: 100%;
     height: 100%;
-    background-image: url('/assets/imgs/texts/text-back-to-menu.png');
+    background-image: url('../assets/imgs/texts/text-back-to-menu.png');
     background-size: cover;
     background-position: center;
 }
