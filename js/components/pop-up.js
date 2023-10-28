@@ -36,42 +36,6 @@
         elementMessage.className = 'message '+msg;
     }
 
-    async validateUsername(username) {
-        const url = '/php/validate_username.php';
-        const data = {
-            username
-        }
-        const init = {
-            method: 'POST',
-            body: JSON.stringify(data),
-            headers: {
-                'Content-Type': 'application/json'
-            }
-        }
-
-        const response = await fetch(url, init);
-        const jsonData = await response.json();
-        return jsonData.res;
-    }
-
-    saveNewUser(username, profilePicture) {
-        const url = '/php/save_new_user.php';
-        const data = {
-            username,
-            gamesWon: 0,
-            profilePicture
-        }
-        const init = {
-            method: 'POST',
-            body: JSON.stringify(data),
-            headers: {
-                'Content-Type': 'application/json'
-            }
-        }
-
-        fetch(url, init);
-    }
-
     // Convert name to a valid format
     formatForName(name) {
         if (name.trim() != '') {
@@ -91,22 +55,14 @@
                 let username = document.getElementById('input-name').value;
                 username = this.formatForName(username);
 
-                this.validateUsername(username)
-                .then(value => {
-                    if (value == 'empty-name') {
-                        this.message(value)
-
-                    } else if (value == 'long-name') {
-                        this.message(value);
-
-                    } else if (value == 'name-exists') {
-                        this.message(value);
-
-                    } else if (value == 'save-data') {
-                        this.hideOrShowPopUp(popUpGetUsername);
-                        resolve(username);
-                    }
-                });
+                if (username.length === 0) {
+                    this.message('empty-name');
+                } else if (username.length > 8) {
+                    this.message('long-name');
+                } else {
+                    this.hideOrShowPopUp(popUpGetUsername);
+                    resolve(username);
+                }
             });
         });
     }
@@ -147,12 +103,13 @@
         const audioPermission = await this.getAudioPermission();
         const username = await this.getUsername();
         const profilePicture = await this.getProfilePicture();
-        this.saveNewUser(username, profilePicture);
 
         return {
             audioPermission,
             username,
-            profilePicture
+            profilePicture,
+            gamesWon: 0,
+            diamonds: 200
         }
     }
 }

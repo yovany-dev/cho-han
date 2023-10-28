@@ -30,8 +30,9 @@ export default class View {
             this.model.saveData('userData', JSON.stringify(userData));
         }
 
-        this.username = this.model.getUserData().username;
-        this.game.init(this.username);
+        // this.username = this.model.getUserData().username;
+        const userData = this.model.getUserData();
+        this.game.init(userData);
     }
 
     saveAudioPermission(value) {
@@ -50,7 +51,8 @@ export default class View {
             main.classList.remove('none');
 
             // Write user profile
-            this.userProfile.write(this.username);
+            const userData = this.model.getUserData();
+            this.userProfile.write(userData);
 
             // Starting audio...
             const audioPermission = this.model.getUserData().audioPermission;

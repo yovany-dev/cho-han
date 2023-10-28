@@ -2,33 +2,12 @@ import UserProfile from "/js/components/userProfile.js";
 
 export default class Game {
     constructor() {
-        this.username = null;
+        this.data = null;
         this.diamonds = null;
         this.bet = null;
         this.diceOne = null;
         this.diceTwo = null;
         this.UserProfile = new UserProfile();
-    }
-
-    async getDiamonds() {
-        const username = this.username;
-        const url = '/php/user_data.php';
-        const data = {
-            username
-        }
-        const init = {
-            method: 'POST',
-            body: JSON.stringify(data),
-            headers: {
-                'Content-Type': 'application/json'
-            }
-        }
-
-        const response = await fetch(url, init);
-        const jsonData = await response.json();
-        this.diamonds = jsonData.diamonds;
-
-        return response.status;
     }
 
     message(msg) {
@@ -57,39 +36,26 @@ export default class Game {
         element.classList.add('animation');
     }
 
-    async upgradeData(win) {
-        const url = '/php/update_data.php';
-        const username = this.username;
-        const bet = this.bet;
+    upgradeData(win) {
+        const userData = {...this.data};
 
-        const data = {
-            username,
-            win,
-            bet
+        if (win) {
+            userData.gamesWon += 1;
+            userData.diamonds = +userData.diamonds + +this.bet;
+        } else {
+            userData.diamonds = userData.diamonds - this.bet;
         }
-        const init = {
-            method: 'POST',
-            body: JSON.stringify(data),
-            headers: {
-                'Content-Type': 'application/json'
-            }
-        }
+        this.data = userData;
+        this.diamonds = this.data.diamonds;
 
-        const response = await fetch(url, init);
-        return response.status;
+        // Update profile
+        this.UserProfile.write(userData);
+
+        // Update local storage
+        localStorage.setItem('userData', JSON.stringify(userData));
     }
 
-    upgradeDiamondsAndGamesWon(status) {
-        let win = false;
-
-        if (status == 'cho' || status == 'han') {
-            win = true;
-        }
-
-        return this.upgradeData(win);
-    }
-
-    showResults(status) {
+    showResults(win) {
         const elementShowResults = document.getElementById('show-results');
         elementShowResults.classList.add('show');
 
@@ -106,7 +72,7 @@ export default class Game {
         titleResults.innerText = 'Obtuviste un ' + sum;
 
         const diamondsResults = document.getElementById('diamonds-results');
-        if (status == 'cho' || status == 'han') {
+        if (win) {
             diamondsResults.innerText = '+' + this.bet;
             diamondsResults.style.color = '#f2f2f2';
 
@@ -115,13 +81,7 @@ export default class Game {
             diamondsResults.style.color = '#dd2424';
         }
 
-        // Update data
-        this.upgradeDiamondsAndGamesWon(status)
-        .then(res => {
-            if (res == 200) {
-                this.UserProfile.write(this.username);
-            }
-        });
+        this.upgradeData(win);
 
         // Animation
         const containerDice = document.getElementById('container-dice');
@@ -150,13 +110,7 @@ export default class Game {
                 elementShowResults.classList.remove('show');
 
                 const elementGetBet = document.getElementById('get-bet');
-
-                this.getDiamonds()
-                .then(res => {
-                    if (res == 200) {
-                        elementGetBet.classList.remove('hide');
-                    }
-                });
+                elementGetBet.classList.remove('hide');
 
                 if (element.matches('.button-back-to-menu')) {
                     const menu = document.getElementById('menu');
@@ -176,18 +130,18 @@ export default class Game {
             (this.diceOne + this.diceTwo) % 2 === 0
         ) {
             // Cho
-            this.showResults(option);
+            this.showResults(true);
 
         } else if (
             option == 'han' &&
             (this.diceOne + this.diceTwo) % 2 !== 0
         ) {
             // Han
-            this.showResults(option);
+            this.showResults(true);
 
         } else {
             // Game over
-            this.showResults('game-over');
+            this.showResults(false);
         }
     }
 
@@ -255,14 +209,10 @@ export default class Game {
         });
     }
 
-    init(username) {
-        this.username = username;
+    init(data) {
+        this.data = data;
+        this.diamonds = data.diamonds;
 
-        this.getDiamonds()
-        .then(res => {
-            if (res == 200) {
-                this.getBet();
-            }
-        });
+        this.getBet();
     }
 }
